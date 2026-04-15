@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Download } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './icons/BrandIcons';
+import { ArrowDown } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 function TypingText({ texts, className }) {
@@ -87,14 +86,14 @@ export default function Hero() {
           variants={itemVariants}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
         >
-          <span className="text-white">Hi, I'm </span>
+          <span className="text-heading">Hi, I'm </span>
           <span className="gradient-text">{personalInfo.firstName}</span>
         </motion.h1>
 
         {/* Typing subtitle */}
         <motion.div variants={itemVariants} className="mb-6 h-8">
           <TypingText
-            texts={['Full-Stack Developer', 'React & Node.js Engineer', 'Backend Architect', 'Cloud Enthusiast']}
+            texts={['Full-Stack Developer', 'React & Node.js Engineer', 'Backend Architect']}
             className="text-lg sm:text-xl md:text-2xl font-medium text-dark-200"
           />
         </motion.div>
@@ -121,42 +120,6 @@ export default function Hero() {
               View Projects
               <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
             </span>
-          </a>
-
-          <a
-            href={personalInfo.resumeFile}
-            download="Giritharan_S_Resume.pdf"
-            className="group px-7 py-3.5 text-sm font-semibold text-dark-100 rounded-xl border border-dark-600 hover:border-dark-400 bg-dark-800/50 backdrop-blur-sm transition-all hover:bg-dark-700/50"
-          >
-            <span className="flex items-center gap-2">
-              <Download size={16} />
-              Download Resume
-            </span>
-          </a>
-        </motion.div>
-
-        {/* Social links */}
-        <motion.div
-          variants={itemVariants}
-          className="flex items-center justify-center gap-4"
-        >
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl text-dark-400 hover:text-white hover:bg-white/[0.06] transition-all"
-            aria-label="GitHub Profile"
-          >
-            <GithubIcon size={20} />
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl text-dark-400 hover:text-white hover:bg-white/[0.06] transition-all"
-            aria-label="LinkedIn Profile"
-          >
-            <LinkedinIcon size={20} />
           </a>
         </motion.div>
       </motion.div>

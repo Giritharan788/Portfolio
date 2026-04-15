@@ -18,15 +18,13 @@ export const personalInfo = {
 
 export const aboutText = {
   paragraphs: [
-    "I'm a third-year Computer Science student with a builder's mindset — I don't just learn technologies, I ship products with them. From multi-tenant SaaS platforms to real-time task managers, I focus on writing clean, scalable code that works in production.",
-    "My stack spans the full spectrum: React and Tailwind on the frontend, Node.js and Express on the backend, MongoDB and Firebase for data, and AWS for deployment. I care deeply about architecture — designing systems that are secure, performant, and maintainable from day one.",
-    "I'm actively seeking a full-stack or backend internship where I can bring this energy to a team, contribute to meaningful products, and grow alongside experienced engineers.",
+    "I build full-stack web applications using the MERN stack, with strong focus on scalable backend systems and clean, responsive frontend experiences. My work includes designing RESTful APIs, authentication and authorization systems, database architecture, and building intuitive user interfaces with reusable components.",
+    "I care about writing maintainable code, solving real problems efficiently, and creating applications that are both technically solid and user-friendly. I enjoy turning ideas into complete products \u2014 from database design to deployment \u2014 while continuously improving my skills as a developer.",
   ],
   highlights: [
     { label: 'Focus', value: 'Full-Stack Development' },
     { label: 'Education', value: 'B.Sc. Computer Science' },
     { label: 'Projects', value: '2+ Production Apps' },
-    { label: 'Status', value: 'Open to Internships' },
   ],
 };
 
@@ -90,7 +88,17 @@ export const projects = [
       'Built a scalable RBAC system supporting three distinct user roles with different permission levels',
     ],
     github: 'https://github.com/Giritharan788/gym-management-system',
-    live: null,
+    live: 'https://gym-management-system-gules-eight.vercel.app',
+    demoCredentials: {
+      gymSlug: 'iron-fitness-gym',
+      password: 'Password@123',
+      roles: [
+        { role: 'Super Admin', email: 'superadmin@gymmanager.com', route: '/platform/login' },
+        { role: 'Admin', email: 'admin@ironfitness.com', route: '/login' },
+        { role: 'Trainer 1–5', email: 'trainer1@ironfitness.com ... trainer5@ironfitness.com', route: '/login' },
+        { role: 'Member 1–50', email: 'member1@ironfitness.com ... member50@ironfitness.com', route: '/login' },
+      ],
+    },
     featured: true,
     gradient: 'from-indigo-500/10 to-cyan-500/10',
     accentColor: '#6366f1',

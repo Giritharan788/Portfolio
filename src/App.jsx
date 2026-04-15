@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTheme } from './hooks/useTheme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -13,11 +14,16 @@ import FloatingParticles from './components/FloatingParticles';
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="noise-overlay">
       <FloatingParticles count={25} />
-      <Navbar onResumePreview={() => setResumeOpen(true)} />
+      <Navbar
+        onResumePreview={() => setResumeOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       <main>
         <Hero />

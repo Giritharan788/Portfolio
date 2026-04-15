@@ -35,7 +35,7 @@ function SkillCard({ category, index }) {
             className="transition-transform duration-300 group-hover:scale-110"
           />
         </div>
-        <h3 className="text-base font-semibold text-white">{category.title}</h3>
+        <h3 className="text-base font-semibold text-heading">{category.title}</h3>
       </div>
 
       {/* Skills */}
@@ -43,7 +43,7 @@ function SkillCard({ category, index }) {
         {category.skills.map((skill) => (
           <span
             key={skill}
-            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-dark-700/60 text-dark-200 border border-dark-600/50 hover:border-dark-400/50 hover:text-white transition-all cursor-default"
+            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-dark-700/60 text-dark-200 border border-dark-600/50 hover:border-dark-400/50 hover:text-heading transition-all cursor-default"
           >
             {skill}
           </span>

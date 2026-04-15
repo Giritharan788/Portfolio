@@ -16,7 +16,7 @@ export default function ResumePreview({ isOpen, onClose }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[70] bg-dark-950/90 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] bg-black/70 backdrop-blur-sm"
           />
 
           {/* Modal */}
@@ -48,7 +48,7 @@ export default function ResumePreview({ isOpen, onClose }) {
                 </a>
                 <button
                   onClick={onClose}
-                  className="p-2 text-dark-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
+                  className="p-2 text-dark-400 hover:text-heading rounded-lg hover-overlay transition-colors"
                 >
                   <X size={18} />
                 </button>

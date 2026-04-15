@@ -49,7 +49,7 @@ export default function Education() {
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <GraduationCap size={16} className="text-accent-400" />
-                          <h3 className="text-base font-semibold text-white">
+                          <h3 className="text-base font-semibold text-heading">
                             {edu.degree}
                           </h3>
                         </div>
@@ -98,7 +98,7 @@ export default function Education() {
                   <BookOpen size={20} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-white">{training.title}</h3>
+                  <h3 className="text-base font-semibold text-heading">{training.title}</h3>
                   <p className="text-sm text-dark-400">{training.organization}</p>
                 </div>
               </div>

@@ -17,7 +17,7 @@ export default function SectionHeading({ label, title, description }) {
       <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-accent-400 mb-3">
         {label}
       </span>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-heading mb-4 tracking-tight">
         {title}
       </h2>
       {description && (

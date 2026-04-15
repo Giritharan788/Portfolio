@@ -7,13 +7,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-dark-700/30">
+    <footer className="relative border-t border-dark-700/50">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid sm:grid-cols-3 gap-10 mb-12">
           {/* Logo & description */}
           <div className="sm:col-span-1">
             <span className="text-xl font-bold tracking-tight">
-              <span className="text-white">G</span>
+              <span className="text-heading">G</span>
               <span className="text-accent-400">.</span>
               <span className="text-dark-400 text-sm font-medium ml-1">dev</span>
             </span>
@@ -32,7 +32,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-dark-400 hover:text-white transition-colors inline-flex items-center gap-1 group"
+                    className="text-sm text-dark-400 hover:text-heading transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -53,7 +53,7 @@ export default function Footer() {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-dark-400 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                  className="text-sm text-dark-400 hover:text-heading transition-colors inline-flex items-center gap-2 group"
                 >
                   <GithubIcon size={14} />
                   GitHub
@@ -65,7 +65,7 @@ export default function Footer() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-dark-400 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                  className="text-sm text-dark-400 hover:text-heading transition-colors inline-flex items-center gap-2 group"
                 >
                   <LinkedinIcon size={14} />
                   LinkedIn
@@ -75,7 +75,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="text-sm text-dark-400 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                  className="text-sm text-dark-400 hover:text-heading transition-colors inline-flex items-center gap-2 group"
                 >
                   <Mail size={14} />
                   Email
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-dark-700/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-dark-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-dark-500 flex items-center gap-1">
             © {currentYear} Giritharan S. Built with
             <Heart size={10} className="text-accent-400 fill-accent-400" />
@@ -98,7 +98,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-dark-500 hover:text-white hover:bg-white/[0.04] transition-all"
+              className="p-2 rounded-lg text-dark-500 hover:text-heading hover-overlay transition-all"
               aria-label="GitHub"
             >
               <GithubIcon size={16} />
@@ -107,14 +107,14 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-dark-500 hover:text-white hover:bg-white/[0.04] transition-all"
+              className="p-2 rounded-lg text-dark-500 hover:text-heading hover-overlay transition-all"
               aria-label="LinkedIn"
             >
               <LinkedinIcon size={16} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-2 rounded-lg text-dark-500 hover:text-white hover:bg-white/[0.04] transition-all"
+              className="p-2 rounded-lg text-dark-500 hover:text-heading hover-overlay transition-all"
               aria-label="Email"
             >
               <Mail size={16} />

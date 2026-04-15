@@ -66,7 +66,7 @@ export default function About() {
                     className="flex items-center justify-between py-3 border-b border-dark-700/50 last:border-0"
                   >
                     <span className="text-sm text-dark-400">{item.label}</span>
-                    <span className="text-sm font-medium text-white">{item.value}</span>
+                    <span className="text-sm font-medium text-heading">{item.value}</span>
                   </motion.div>
                 ))}
               </div>

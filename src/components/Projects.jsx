@@ -46,7 +46,7 @@ function ProjectCard({ project, index }) {
                   </span>
                 )}
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-accent-300 transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-heading mb-1 group-hover:text-accent-300 transition-colors">
                 {project.title}
               </h3>
               <p className="text-sm text-dark-400 font-medium">{project.subtitle}</p>
@@ -99,6 +99,50 @@ function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
+
+          {/* Demo Credentials */}
+          {project.demoCredentials && (
+            <div className="mb-6 p-4 md:p-5 rounded-xl border border-dark-700/50 bg-dark-800/30">
+              <div className="flex items-center gap-2 mb-3">
+                <ExternalLink size={14} className="text-cyan-400" />
+                <span className="text-xs font-semibold text-dark-300 uppercase tracking-wider">
+                  Demo Credentials
+                </span>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-dark-200">
+                  <span className="text-dark-400">Gym ID (Slug):</span>{' '}
+                  <code className="px-1.5 py-0.5 text-xs bg-dark-700/60 text-accent-300 rounded">{project.demoCredentials.gymSlug}</code>
+                </p>
+                <p className="text-sm text-dark-200">
+                  <span className="text-dark-400">Password for all:</span>{' '}
+                  <code className="px-1.5 py-0.5 text-xs bg-dark-700/60 text-accent-300 rounded">{project.demoCredentials.password}</code>
+                </p>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-dark-700/50">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-dark-700/50 bg-dark-800/40">
+                      <th className="text-left px-4 py-2.5 text-xs font-semibold text-dark-300 uppercase tracking-wider">Role</th>
+                      <th className="text-left px-4 py-2.5 text-xs font-semibold text-dark-300 uppercase tracking-wider">Email</th>
+                      <th className="text-left px-4 py-2.5 text-xs font-semibold text-dark-300 uppercase tracking-wider">Login Route</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {project.demoCredentials.roles.map((r, i) => (
+                      <tr key={i} className="border-b border-dark-700/30 last:border-0 hover:bg-dark-800/30 transition-colors">
+                        <td className="px-4 py-2.5 text-dark-100 font-medium whitespace-nowrap">{r.role}</td>
+                        <td className="px-4 py-2.5 text-dark-300 font-mono text-xs">{r.email}</td>
+                        <td className="px-4 py-2.5">
+                          <code className="px-1.5 py-0.5 text-xs bg-dark-700/60 text-emerald-400 rounded">{r.route}</code>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
 
           {/* Key features (always visible) */}
           <div className="mb-4">
@@ -162,6 +206,7 @@ function ProjectCard({ project, index }) {
                     ))}
                   </ul>
                 </div>
+
               </motion.div>
             )}
           </AnimatePresence>
