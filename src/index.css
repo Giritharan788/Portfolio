@@ -4,7 +4,6 @@
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Dark color scale tokens (runtime values set per-theme below) */
   --color-dark-950: #09090b;
   --color-dark-900: #0f0f13;
   --color-dark-800: #16161d;
@@ -16,69 +15,44 @@
   --color-dark-200: #b0b0c5;
   --color-dark-100: #d4d4e0;
 
-  /* Semantic heading color token */
-  --color-heading: #ffffff;
-
-  /* Accent colors */
-  --color-accent-600: #4f46e5;
   --color-accent-500: #6366f1;
   --color-accent-400: #818cf8;
   --color-accent-300: #a5b4fc;
+  --color-accent-600: #4f46e5;
 
   --color-cyan-400: #22d3ee;
   --color-cyan-500: #06b6d4;
 
-  --color-emerald-300: #6ee7b7;
   --color-emerald-400: #34d399;
   --color-emerald-500: #10b981;
-
-  --color-amber-400: #fbbf24;
 }
 
-/* ──────── Light Theme (default) ──────── */
+/* ══════════════════════════════════════════════════════════════════
+   THEME SYSTEM — Light mode (default) / Dark mode (toggle)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Light mode — override dark-* tokens with light equivalents */
 :root {
-  --color-dark-950: #ebebf0;
-  --color-dark-900: #e2e3ea;
-  --color-dark-800: #d9dbe3;
-  --color-dark-700: #cbced9;
-  --color-dark-600: #b5b9c8;
-  --color-dark-500: #868c9e;
-  --color-dark-400: #5c6478;
-  --color-dark-300: #404859;
-  --color-dark-200: #272e3e;
-  --color-dark-100: #151a26;
-  --color-heading: #111827;
+  --color-dark-950: #f7f8fb;
+  --color-dark-900: #eef0f4;
+  --color-dark-800: #e2e5eb;
+  --color-dark-700: #d0d4dc;
+  --color-dark-600: #b8bec9;
+  --color-dark-500: #94a0b2;
+  --color-dark-400: #64748b;
+  --color-dark-300: #475569;
+  --color-dark-200: #334155;
+  --color-dark-100: #1e293b;
 
-  /* Make accent text readable on light backgrounds */
-  --color-accent-400: #6366f1;
-  --color-accent-300: #818cf8;
-  --color-emerald-300: #059669;
-  --color-emerald-400: #059669;
-  --color-cyan-400: #0891b2;
-  --color-amber-400: #d97706;
+  /* Semantic heading color for light mode */
+  --theme-heading: #0f172a;
+  --theme-white-overlay: rgba(0, 0, 0, 0.04);
+  --theme-white-overlay-hover: rgba(0, 0, 0, 0.07);
 
-  /* Glass morphism */
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(99, 102, 241, 0.1);
-  --glass-hover-bg: rgba(255, 255, 255, 0.75);
-  --glass-hover-border: rgba(99, 102, 241, 0.22);
-  --glass-hover-shadow: rgba(99, 102, 241, 0.1);
-
-  /* Overlays */
-  --overlay-subtle: rgba(99, 102, 241, 0.06);
-  --overlay-hover: rgba(99, 102, 241, 0.09);
-
-  /* Gradient text */
-  --gradient-start: #6366f1;
-  --gradient-mid: #0891b2;
-  --gradient-end: #059669;
-
-  /* Misc */
-  --noise-opacity: 0;
-  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.05), 0 4px 24px rgba(0, 0, 0, 0.04);
+  color-scheme: light;
 }
 
-/* ──────── Dark Theme ──────── */
+/* Dark mode — restore original dark palette */
 [data-theme="dark"] {
   --color-dark-950: #09090b;
   --color-dark-900: #0f0f13;
@@ -90,38 +64,15 @@
   --color-dark-300: #8888a0;
   --color-dark-200: #b0b0c5;
   --color-dark-100: #d4d4e0;
-  --color-heading: #ffffff;
 
-  /* Lighter accent text for dark backgrounds */
-  --color-accent-400: #818cf8;
-  --color-accent-300: #a5b4fc;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-400: #34d399;
-  --color-cyan-400: #22d3ee;
-  --color-amber-400: #fbbf24;
+  --theme-heading: #ffffff;
+  --theme-white-overlay: rgba(255, 255, 255, 0.06);
+  --theme-white-overlay-hover: rgba(255, 255, 255, 0.08);
 
-  /* Glass morphism */
-  --glass-bg: rgba(22, 22, 29, 0.6);
-  --glass-border: rgba(99, 102, 241, 0.08);
-  --glass-hover-bg: rgba(22, 22, 29, 0.8);
-  --glass-hover-border: rgba(99, 102, 241, 0.2);
-  --glass-hover-shadow: rgba(99, 102, 241, 0.06);
-
-  /* Overlays */
-  --overlay-subtle: rgba(255, 255, 255, 0.04);
-  --overlay-hover: rgba(255, 255, 255, 0.06);
-
-  /* Gradient text */
-  --gradient-start: #818cf8;
-  --gradient-mid: #22d3ee;
-  --gradient-end: #34d399;
-
-  /* Misc */
-  --noise-opacity: 0.015;
-  --shadow-card: none;
+  color-scheme: dark;
 }
 
-/* ──── Base Layer ──── */
+/* ──── Base Layer (works WITH Tailwind's preflight, not against it) ──── */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -135,7 +86,7 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.35s ease, color 0.35s ease;
   }
 
   ::selection {
@@ -144,7 +95,82 @@
   }
 }
 
-/* ──── Scrollbar ──── */
+/* ══════════════════════════════════════════════════════════════════
+   LIGHT MODE — text-white overrides for headings & non-button text
+   ══════════════════════════════════════════════════════════════════ */
+
+/* In light mode, text-white on headings/labels should become dark */
+:root:not([data-theme="dark"]) h1,
+:root:not([data-theme="dark"]) h2,
+:root:not([data-theme="dark"]) h3,
+:root:not([data-theme="dark"]) h4 {
+  color: var(--theme-heading) !important;
+}
+
+/* Gradient-text elements keep their gradient (override the heading rule) */
+:root:not([data-theme="dark"]) .gradient-text,
+:root:not([data-theme="dark"]) .gradient-text-accent {
+  color: unset !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Generic text-white spans/elements NOT inside accent-bg buttons */
+:root:not([data-theme="dark"]) .text-white {
+  color: var(--theme-heading);
+}
+
+/* PRESERVE white text on accent-colored buttons and badges */
+:root:not([data-theme="dark"]) a.bg-accent-500,
+:root:not([data-theme="dark"]) a.bg-accent-600,
+:root:not([data-theme="dark"]) button.bg-accent-500,
+:root:not([data-theme="dark"]) button.bg-accent-600,
+:root:not([data-theme="dark"]) a.bg-accent-500 *,
+:root:not([data-theme="dark"]) a.bg-accent-600 *,
+:root:not([data-theme="dark"]) button.bg-accent-500 *,
+:root:not([data-theme="dark"]) button.bg-accent-600 * {
+  color: #ffffff !important;
+}
+
+/* Hero "View Projects" button — gradient bg via child span */
+:root:not([data-theme="dark"]) a:has(> .from-accent-500),
+:root:not([data-theme="dark"]) a:has(> .from-accent-500) * {
+  color: #ffffff !important;
+}
+
+/* Keep emerald status badge text colored (not white) */
+:root:not([data-theme="dark"]) .text-emerald-300 {
+  color: var(--color-emerald-400) !important;
+}
+
+/* ──── bg-white/[opacity] → dark overlay in light mode ──── */
+:root:not([data-theme="dark"]) .bg-white\/\[0\.06\],
+:root:not([data-theme="dark"]) .bg-white\/\[0\.04\],
+:root:not([data-theme="dark"]) .bg-white\/\[0\.03\] {
+  background-color: var(--theme-white-overlay) !important;
+}
+
+:root:not([data-theme="dark"]) .hover\:bg-white\/\[0\.06\]:hover,
+:root:not([data-theme="dark"]) .hover\:bg-white\/\[0\.04\]:hover,
+:root:not([data-theme="dark"]) .hover\:bg-white\/\[0\.03\]:hover {
+  background-color: var(--theme-white-overlay-hover) !important;
+}
+
+/* ──── border-white/[opacity] → dark border in light mode ──── */
+:root:not([data-theme="dark"]) .border-white\/\[0\.04\] {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ──── hover:text-white → dark in light mode ──── */
+:root:not([data-theme="dark"]) .hover\:text-white:hover {
+  color: var(--theme-heading) !important;
+}
+
+/* ──── Radial gradient overlay in Hero ──── */
+:root:not([data-theme="dark"]) .bg-\[radial-gradient\(ellipse_at_center\,transparent_0\%\,var\(--color-dark-950\)_70\%\)\] {
+  background: radial-gradient(ellipse at center, transparent 0%, var(--color-dark-950) 70%);
+}
+
+/* ──── Scrollbar (must be outside layers for cross-browser compat) ──── */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -164,43 +190,32 @@
 
 /* ──── Component Utilities ──── */
 @utility glass-card {
-  background: var(--glass-bg);
+  background: var(--theme-white-overlay);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(99, 102, 241, 0.08);
   border-radius: 1rem;
-  box-shadow: var(--shadow-card);
 }
 
 @utility glass-card-hover {
   transition: all 0.3s ease;
   &:hover {
-    border-color: var(--glass-hover-border);
-    background: var(--glass-hover-bg);
-    box-shadow: 0 0 30px var(--glass-hover-shadow);
+    border-color: rgba(99, 102, 241, 0.2);
+    background: var(--theme-white-overlay-hover);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.06);
     transform: translateY(-2px);
   }
 }
 
-@utility overlay-subtle {
-  background-color: var(--overlay-subtle);
-}
-
-@utility hover-overlay {
-  &:hover {
-    background-color: var(--overlay-hover);
-  }
-}
-
 @utility gradient-text {
-  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+  background: linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #34d399 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 @utility gradient-text-accent {
-  background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-accent-400) 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -230,7 +245,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: var(--noise-opacity);
+    opacity: 0.015;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     z-index: 9999;
   }
@@ -278,3 +293,4 @@ button:focus-visible {
   outline-offset: 2px;
   border-radius: 0.5rem;
 }
+

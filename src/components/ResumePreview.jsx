@@ -86,7 +86,10 @@ export default function ResumePreview({ isOpen, onClose }) {
                   {/* Summary */}
                   <ResumeSection title="SUMMARY">
                     <p className="text-sm text-gray-700 leading-relaxed">
-                      Third-year B.Sc. CS student eager to build real-world web applications. Comfortable across the stack — React, Node.js, MongoDB, and AWS — and looking to contribute and grow through a full-stack or backend internship.
+                      B.Sc. CS student with hands-on experience building and deploying full-stack SaaS products. Built a multi-tenant
+                      platform with tenant isolation, push notifications, and a custom AWS + Nginx production setup. Proficient in React,
+                      Node.js, MongoDB.
+
                     </p>
                   </ResumeSection>
 
@@ -128,7 +131,7 @@ export default function ResumePreview({ isOpen, onClose }) {
                         Deadline Reminder — Full-Stack Web App
                       </p>
                       <ul className="mt-1.5 space-y-1.5 text-sm text-gray-700 list-disc list-outside ml-4">
-                        <li>Built a full-stack task manager (React, Node.js, Firebase) with secure auth, supporting real-time updates across multiple concurrent sessions.</li>
+                        <li>Built a full-stack task manager (React,Firebase) with secure auth, supporting real-time updates across multiple concurrent sessions.</li>
                         <li>Implemented CRUD operations with priority-based sorting, reducing task lookup time by organizing deadlines into 3 automated status categories (Overdue, Due Soon, Upcoming).</li>
                         <li>Designed a fully responsive UI deployed on Firebase Hosting with sub-2s load times.</li>
                       </ul>

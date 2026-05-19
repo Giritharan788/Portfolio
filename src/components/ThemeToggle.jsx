@@ -1,26 +1,56 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
-export default function ThemeToggle({ theme, onToggle }) {
-  const isDark = theme === 'dark';
+export default function ThemeToggle({ className = '' }) {
+  const [isDark, setIsDark] = useState(false);
+
+  // Initialize from localStorage or default to light
+  useEffect(() => {
+    const stored = localStorage.getItem('portfolio-theme');
+    if (stored === 'dark') {
+      setIsDark(true);
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+
+    if (next) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('portfolio-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('portfolio-theme', 'light');
+    }
+  };
 
   return (
-    <button
-      onClick={onToggle}
-      className="relative p-2.5 rounded-xl text-dark-400 hover:text-heading hover-overlay transition-colors"
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+    <motion.button
+      onClick={toggleTheme}
+      className={`relative p-2.5 rounded-xl border transition-all duration-300 ${
+        isDark
+          ? 'border-dark-600 bg-dark-800/50 text-dark-300 hover:text-amber-300 hover:border-amber-400/30 hover:bg-amber-400/[0.06]'
+          : 'border-dark-600 bg-dark-800/50 text-dark-400 hover:text-accent-500 hover:border-accent-400/30 hover:bg-accent-400/[0.06]'
+      } ${className}`}
+      whileTap={{ scale: 0.92 }}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div
-          key={isDark ? 'moon' : 'sun'}
-          initial={{ y: -12, opacity: 0, rotate: -30 }}
-          animate={{ y: 0, opacity: 1, rotate: 0 }}
-          exit={{ y: 12, opacity: 0, rotate: 30 }}
-          transition={{ duration: 0.2 }}
-        >
-          {isDark ? <Moon size={18} /> : <Sun size={18} />}
-        </motion.div>
-      </AnimatePresence>
-    </button>
+      <motion.div
+        key={isDark ? 'moon' : 'sun'}
+        initial={{ rotate: -30, opacity: 0, scale: 0.5 }}
+        animate={{ rotate: 0, opacity: 1, scale: 1 }}
+        exit={{ rotate: 30, opacity: 0, scale: 0.5 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+      >
+        {isDark ? <Sun size={16} /> : <Moon size={16} />}
+      </motion.div>
+    </motion.button>
   );
 }
